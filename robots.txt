@@ -1,0 +1,23 @@
+user-agent: *
+disallow: /images/
+disallow: /css/
+disallow: /js/
+disallow: /assets/
+disallow: /classes/
+disallow: /captcha/
+disallow: /admin/
+disallow: /system/ 
+disallow: /application/confiq/ 
+disallow: /application/controllers/ 
+disallow: /application/errors/ 
+disallow: /application/helpers/ 
+disallow: /application/hooks/ 
+disallow: /application/models/ 
+disallow: /application/libraries/ 
+disallow: /application/language/ 
+
+User-agent: Googlebot-Image
+Disallow:
+Allow: /*
+
+Sitemap: http://nuabikes.com/sitemap.xml
