@@ -1,24 +1,7 @@
 <!doctype html>
 <html lang="hu">
     <head>
-    	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125327801-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-125327801-1');
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125518222-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
- 
-  gtag('config', 'UA-125518222-1');
-</script>
         <meta charset="utf-8">
         <title>BicikLizing</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,23 +23,30 @@
     <body class=" ">
         <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  js.src = 'https://connect.facebook.net/hu_HU/sdk/xfbml.customerchat.js';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
-  page_id="995416480658040"
-  logged_in_greeting="Hi!"
-  logged_out_greeting="Let us know if you have any questions!"
-  greeting_dialog_display="fade"
-  greeting_dialog_delay=5
-  >
+  page_id="177914139776570"
+  logged_in_greeting="Szia, kipróbálnád a bringát előbb? "
+  logged_out_greeting="Szia, kipróbálnád a bringát előbb? ">
 </div>
         <a id="start"></a>
 
