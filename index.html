@@ -408,46 +408,7 @@
 
 
 
-                                        <!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
 
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<a class="btn btn--sm"
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-plan_EzxCBouDXO1v2g"
-  role="link"
->
-  Checkout
-</a>
-
-<div id="error-message"></div>
-
-<script>
-  var stripe = Stripe('pk_live_wFUq0QVwNQUp2Jse5UZG3Iz700mk4NOoc8');
-
-  var checkoutButton = document.getElementById('checkout-button-plan_EzxCBouDXO1v2g');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{plan: 'plan_EzxCBouDXO1v2g', quantity: 1}],
-
-      // Note that it is not guaranteed your customers will be redirected to this
-      // URL *100%* of the time, it's possible that they could e.g. close the
-      // tab between form submission and the redirect.
-      successUrl: window.location.protocol + '//www.bicyclize.com/success',
-      cancelUrl: window.location.protocol + '//www.bicyclize.com/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-</script>
                                         <div class="col-md-6">
                                             
                                             <table class="border--round">
@@ -660,6 +621,14 @@
                                            
                                             </div>
                                         </div>
+                                        <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<a class="btn btn--sm"
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-plan_EzxCBouDXO1v2g"
+  role="link"
+>
+  Checkout
+</a>
 
                                         <div class="col-md-6">
                                             
@@ -930,6 +899,40 @@
             <!--end of container-->
         </footer>
         </div>
+
+                                                <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+
+
+<div id="error-message"></div>
+
+<script>
+  var stripe = Stripe('pk_live_wFUq0QVwNQUp2Jse5UZG3Iz700mk4NOoc8');
+
+  var checkoutButton = document.getElementById('checkout-button-plan_EzxCBouDXO1v2g');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_EzxCBouDXO1v2g', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: window.location.protocol + '//www.bicyclize.com/success',
+      cancelUrl: window.location.protocol + '//www.bicyclize.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
         <!--<div class="loader"></div>-->
         
         <script src="js/jquery-3.1.1.min.js"></script>
