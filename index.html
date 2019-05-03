@@ -72,11 +72,7 @@
                                             <i class="fab fa-medium fa-2x"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="https://www.twitter.com/bicyclize" target="_blank">
-                                            <i class="fab fa-twitter fa-2x"></i>
-                                        </a>
-                                    </li>
+                                
                                     <li>
                                         <a href="https://www.facebook.com/bicyclize" target="_blank">
                                             <i class="fab fa-facebook fa-2x"></i>
@@ -102,7 +98,7 @@
                                                 <div class="col-lg-1 dropdown__content">
                                                     <ul class="menu-vertical text-left">
                                                         <li>
-                                                            <a href="indexEN.html">EN</a>
+                                                            <img  href="indexEN.html">EN</a>
                                                         </li>
                                                         <li>
                                                             <a href="#">DE</a>
@@ -127,11 +123,7 @@
                                             <i class="fab fa-medium  fa-2x"></i>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="https://www.twitter.com/bicyclize" target="_blank">
-                                            <i class="fab fa-twitter fa-2x"></i>
-                                        </a>
-                                    </li>
+                                  
                                     <li>
                                         <a href="https://www.facebook.com/bicyclize" target="_blank">
                                             <i class="fab fa-facebook fa-2x"></i>
@@ -413,6 +405,49 @@
                                                 </p>
                                             </div>
                                         </div>
+
+
+
+                                        <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<a class="btn btn--sm"
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-plan_EzxCBouDXO1v2g"
+  role="link"
+>
+  Checkout
+</a>
+
+<div id="error-message"></div>
+
+<script>
+  var stripe = Stripe('pk_live_wFUq0QVwNQUp2Jse5UZG3Iz700mk4NOoc8');
+
+  var checkoutButton = document.getElementById('checkout-button-plan_EzxCBouDXO1v2g');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      items: [{plan: 'plan_EzxCBouDXO1v2g', quantity: 1}],
+
+      // Note that it is not guaranteed your customers will be redirected to this
+      // URL *100%* of the time, it's possible that they could e.g. close the
+      // tab between form submission and the redirect.
+      successUrl: window.location.protocol + '//www.bicyclize.com/success',
+      cancelUrl: window.location.protocol + '//www.bicyclize.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+</script>
                                         <div class="col-md-6">
                                             
                                             <table class="border--round">
@@ -866,11 +901,7 @@
                                     <i class="fab fa-medium fa-2x"></i>
                                 </a>
                             </li>
-                            <li>
-                                <a href="https://www.twitter.com/bicyclize" target="_blank">
-                                    <i class="fab fa-twitter fa-2x"></i>
-                                </a>
-                            </li>
+                           
                             <li>
                                 <a href="https://www.facebook.com/bicyclize" target="_blank">
                                     <i class="fab fa-facebook fa-2x"></i>
